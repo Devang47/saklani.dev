@@ -3,22 +3,10 @@
 import React, { useEffect } from 'react'
 
 import { useAppStore } from '~/context/use-app-store'
-import {
-  basementLog,
-  gaTrackingId,
-  isClient,
-  isDev,
-  isProd
-} from '~/lib/constants'
+import { gaTrackingId, isClient, isDev, isProd } from '~/lib/constants'
 import { GAScripts, useAppGA } from '~/lib/ga'
 
 export const AppHooks = () => {
-  // TODO delete this basement log if not a basement project.
-  if (isProd && isClient) {
-    // eslint-disable-next-line no-console
-    console.log(basementLog)
-  }
-
   if (gaTrackingId) useAppGA()
 
   useOverflowDebuggerInDev()

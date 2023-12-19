@@ -1,15 +1,14 @@
 import '~/css/global.scss'
 
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Outfit } from 'next/font/google'
 
-import { Header } from '~/components/header'
 import { siteURL } from '~/lib/constants'
 
 import { AppHooks } from './app-hooks'
 import { Providers } from './providers'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-body' })
+const outfit = Outfit({ subsets: ['latin'], variable: '--font-body' })
 
 export const metadata: Metadata = {
   title: {
@@ -36,9 +35,8 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body style={{ opacity: 0 }} className={inter.variable}>
+      <body className={outfit.variable}>
         <Providers>
-          <Header />
           {children}
           <AppHooks />
         </Providers>
