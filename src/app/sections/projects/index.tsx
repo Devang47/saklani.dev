@@ -29,6 +29,8 @@ const Projects = forwardRef(function Projects(
             className="inline-flex items-center font-medium text-sm leading-tight text-gray-400 hover:text-gray-200 group"
             aria-label="View Full Project Archive"
             href="https://github.com/Devang47?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <span className="border-b border-transparent pb-px transition group-hover:border-cyan-300 motion-reduce:transition-none">
               View Full Project Archive
