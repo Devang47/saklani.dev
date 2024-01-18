@@ -1,5 +1,7 @@
 import '~/css/global.scss'
 import { GAScripts } from '~/lib/ga'
+import { Analytics } from '@vercel/analytics/react'
+
 import clsx from 'clsx'
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
@@ -13,6 +15,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         {children}
 
         <GAScripts />
+        <Analytics />
       </body>
     </html>
   )
