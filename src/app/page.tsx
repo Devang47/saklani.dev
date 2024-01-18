@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       'Devang Saklani is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences and web apps.',
     url: 'https://saklani.dev',
-    images: [{ url: 'https://saklani.dev/og.png' }]
+    images: 'https://saklani.dev/og.png'
   },
   icons: [
     {
