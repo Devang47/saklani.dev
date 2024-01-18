@@ -1,8 +1,8 @@
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import Script from 'next/script'
 import * as React from 'react'
 
-import { gaTrackingId } from './constants'
+const gaTrackingId = 'G-LD4WWE9J3R'
 
 declare global {
   interface Window {
@@ -75,17 +75,17 @@ export const GAScripts = () => {
   )
 }
 
-// Use this hook in _app.tsx
-export const useAppGA = () => {
-  const router = useRouter()
+// // Use this hook in _app.tsx
+// export const useAppGA = () => {
+//   const router = useRouter()
 
-  React.useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      pageview(url)
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
-}
+//   React.useEffect(() => {
+//     const handleRouteChange = (url: string) => {
+//       pageview(url)
+//     }
+//     router.events.on('routeChangeComplete', handleRouteChange)
+//     return () => {
+//       router.events.off('routeChangeComplete', handleRouteChange)
+//     }
+//   }, [router.events])
+// }

@@ -11,10 +11,10 @@ function Header() {
   return (
     <section className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div className="w-full">
-        <h1 className="text-2xl font-bold tracking-tight text-gray-200 sm:text-4xl">
+        <h1 className="text-2xl font-bold text-gray-200 sm:text-4xl">
           Devang Saklani
         </h1>
-        <h2 className="mt-3 font-semibold tracking-tight text-gray-300 sm:text-lg">
+        <h2 className="mt-3 font-semibold text-gray-300 sm:text-lg">
           Experienced Web developer
         </h2>
 
