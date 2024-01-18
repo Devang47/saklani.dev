@@ -4,23 +4,47 @@ import React from 'react'
 import GithubIcon from '~/icons/github'
 import GmailIcon from '~/icons/gmail'
 import LinkedinIcon from '~/icons/linkedin'
+import ReadcvIcon from '~/icons/readcv'
 import TwitterIcon from '~/icons/twitter'
 import UpworkIcon from '~/icons/upwork'
 
-function Header() {
+interface Props {
+  title: string
+  subtitle: string
+  description: string
+  gmailLink: string
+  githubLink: string
+  linkedinLink: string
+  resumeLink: string
+  twitterLink: string
+  upworkLink: string
+}
+
+function Header({
+  title,
+  subtitle,
+  description,
+
+  gmailLink,
+  githubLink,
+  linkedinLink,
+  resumeLink,
+  twitterLink,
+  upworkLink
+}: Props) {
   return (
     <section className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div className="w-full">
-        <h1 className="text-2xl font-bold text-gray-200 sm:text-4xl">
-          Devang Saklani
-        </h1>
+        <a href="/" className="w-fit block">
+          <h1 className="text-2xl w-fit font-bold text-gray-200 sm:text-4xl">
+            {title}
+          </h1>
+        </a>
         <h2 className="mt-3 font-semibold text-gray-300 sm:text-lg">
-          Experienced Web developer
+          {subtitle}
         </h2>
 
-        <p className="mt-4 text-sm max-w-xs leading-normal">
-          I build exceptional and accessible digital experiences for the web.
-        </p>
+        <p className="mt-4 text-sm max-w-xs leading-normal">{description}</p>
 
         <nav className="nav hidden lg:block" aria-label="In-page jump links">
           <ul className="mt-24 w-max">
@@ -28,6 +52,7 @@ function Header() {
               <li key={i}>
                 <a
                   className={clsx('group flex items-center py-3')}
+                  aria-label={`Jump to ${item} section`}
                   href={'#' + item.toLowerCase()}
                 >
                   <span className="nav-indicator mr-4 h-px w-8 bg-gray-600 transition-all group-hover:w-16 group-hover:bg-gray-200 group-focus-visible:w-16 group-focus-visible:bg-gray-200 motion-reduce:transition-none"></span>
@@ -42,20 +67,54 @@ function Header() {
       </div>
 
       <div className="flex items-center gap-5 mt-8 [&>*]:p-1">
-        <a target="_blank" href="">
+        <a
+          target="_blank"
+          aria-label="mail me"
+          title="send a mail to devang"
+          href={gmailLink}
+        >
           <GmailIcon />
         </a>
-        <a target="_blank" href="">
+        <a
+          target="_blank"
+          aria-label="linkedin url"
+          title="linkedin profile url"
+          href={linkedinLink}
+        >
           <LinkedinIcon />
         </a>
-        <a target="_blank" href="">
+        <a
+          target="_blank"
+          aria-label="twitter url"
+          title="twitter profile url"
+          href={twitterLink}
+        >
           <TwitterIcon />
         </a>
-        <a target="_blank" href="">
+        <a
+          target="_blank"
+          aria-label="github url"
+          title="github profile url"
+          href={githubLink}
+        >
           <GithubIcon />
         </a>
-        <a target="_blank" href="">
+        <a
+          target="_blank"
+          aria-label="upwork url"
+          title="upwork profile url"
+          href={upworkLink}
+        >
           <UpworkIcon />
+        </a>
+        <a
+          target="_blank"
+          aria-label="readcv url"
+          className="-ml-1"
+          title="readcv profile url"
+          href={resumeLink}
+        >
+          <ReadcvIcon />
         </a>
       </div>
     </section>

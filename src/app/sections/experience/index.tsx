@@ -1,10 +1,13 @@
 import React, { LegacyRef, forwardRef } from 'react'
 import Job from '~/components/job'
+import { JobExperience } from '../../../..'
 
 const Experience = forwardRef(function Experience(
-  _props,
+  { jobs }: { jobs: JobExperience[] },
   ref?: LegacyRef<HTMLElement>
 ) {
+  console.log(jobs)
+
   return (
     <section
       ref={ref}
@@ -20,9 +23,7 @@ const Experience = forwardRef(function Experience(
         </div>
 
         <ul className="group/list">
-          {new Array(2).fill(null).map((_, i) => (
-            <Job key={i} />
-          ))}
+          {jobs?.map((data) => <Job data={data} key={data.id} />)}
         </ul>
       </div>
     </section>

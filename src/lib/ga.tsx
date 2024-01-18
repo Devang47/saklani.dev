@@ -1,4 +1,3 @@
-import { useRouter } from 'next/navigation'
 import Script from 'next/script'
 import * as React from 'react'
 

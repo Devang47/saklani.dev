@@ -1,8 +1,9 @@
 import React, { LegacyRef, forwardRef } from 'react'
 import Project from '~/components/project'
+import { IProject } from '../../../..'
 
 const Projects = forwardRef(function Projects(
-  _props,
+  { projects }: { projects: IProject[] },
   ref?: LegacyRef<HTMLElement>
 ) {
   return (
@@ -20,9 +21,7 @@ const Projects = forwardRef(function Projects(
         </div>
 
         <ul className="group/list">
-          {new Array(2).fill(null).map((_, i) => (
-            <Project key={i} />
-          ))}
+          {projects?.map((data, i) => <Project data={data} key={i} />)}
         </ul>
       </div>
     </section>

@@ -9,7 +9,9 @@ import Projects from './sections/projects'
 import Writing from './sections/writing'
 import Footer from './sections/footer'
 import { Container } from '~/components/container'
-function Homepage() {
+import { QueryResponse } from '../..'
+
+function Homepage({ data }: { data: QueryResponse }) {
   const aboutSectionRef = useRef<HTMLDivElement>(null)
   const experienceSectionRef = useRef<HTMLDivElement>(null)
   const projectsSectionRef = useRef<HTMLDivElement>(null)
@@ -48,19 +50,29 @@ function Homepage() {
     <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
       <a
         href="#content"
-        className="absolute left-0 top-0 block -translate-x-full rounded bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 px-4 py-3 text-sm font-bold uppercase tracking-widest text-white focus-visible:translate-x-0"
+        className="absolute left-0 top-0 block -translate-x-full rounded bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 px-4 py-3 text-sm font-bold uppercase tracking-widest text-white focus-visible:translate-x-0"
       >
         Skip to Content
       </a>
 
       <Container as="section" className="lg:flex lg:justify-between lg:gap-4">
-        <Header />
+        <Header
+          title={data.titleH1}
+          description={data.description}
+          subtitle={data.subtitleH2}
+          gmailLink={data.gmailLink}
+          githubLink={data.githubLink}
+          linkedinLink={data.linkedinLink}
+          resumeLink={data.resumeLink}
+          twitterLink={data.twitterLink}
+          upworkLink={data.upworkLink}
+        />
         <main id="content" className="pt-24 lg:w-1/2 lg:py-24">
-          <About ref={aboutSectionRef} />
-          <Experience ref={experienceSectionRef} />
-          <Projects ref={projectsSectionRef} />
+          <About data={data.about} ref={aboutSectionRef} />
+          <Experience jobs={data.jobExperiences} ref={experienceSectionRef} />
+          <Projects projects={data.projects} ref={projectsSectionRef} />
 
-          <Writing />
+          <Writing blogs={data.blogs} />
           <Footer />
         </main>
       </Container>

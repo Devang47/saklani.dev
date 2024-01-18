@@ -14,7 +14,7 @@ function Footer() {
   const setTime = () => {
     const str = new Date().toLocaleString('en-US', {
       timeZone: 'Asia/Kolkata',
-      hour: '2-digit',
+      hour: 'numeric',
       minute: '2-digit'
     })
     setCurrentTime(str)
@@ -22,9 +22,10 @@ function Footer() {
 
   return (
     <footer className="pb-16 sm:pb-0 text-xs">
-      <div className="text-base font-medium">{currentTime}</div>
-      <p className="mt-1">Designed and developed by DevangSaklani</p>
-      {/* <div className="text-[6vw] leading-none whitespace-nowrap">11:50 AM</div> */}
+      <div className="text-base lg:text-xl font-semibold tracking-wider">
+        {currentTime}
+      </div>
+      <p className="mt-1">Designed and developed by Devang</p>
     </footer>
   )
 }
