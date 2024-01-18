@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react'
 
 import { useAppStore } from '~/context/use-app-store'
-import { gaTrackingId, isClient, isDev, isProd } from '~/lib/constants'
+import { gaTrackingId, isDev } from '~/lib/constants'
 import { GAScripts, useAppGA } from '~/lib/ga'
 
 export const AppHooks = () => {

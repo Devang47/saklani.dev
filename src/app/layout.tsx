@@ -1,14 +1,11 @@
 import '~/css/global.scss'
 
 import type { Metadata } from 'next'
-import { Outfit } from 'next/font/google'
-
 import { siteURL } from '~/lib/constants'
 
 import { AppHooks } from './app-hooks'
 import { Providers } from './providers'
-
-const outfit = Outfit({ subsets: ['latin'], variable: '--font-body' })
+import clsx from 'clsx'
 
 export const metadata: Metadata = {
   title: {
@@ -34,8 +31,12 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
-      <body className={outfit.variable}>
+    <html lang="en" className="scroll-smooth">
+      <body
+        className={clsx(
+          'bg-black leading-relaxed text-gray-400 antialiased selection:bg-teal-300 selection:text-teal-900'
+        )}
+      >
         <Providers>
           {children}
           <AppHooks />

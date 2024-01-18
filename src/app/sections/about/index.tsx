@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { LegacyRef, forwardRef } from 'react'
 
-function About() {
+const About = forwardRef(function About(_props, ref?: LegacyRef<HTMLElement>) {
   return (
-    <section className="">
-      <div className="container lg:mt-0 mt-20 [&>p:not(:first-of-type)]:mt-4 [&>p]:px-6">
-        <h2 className="uppercase font-bold py-5 sticky top-0 tracking-wider px-6 bg-[#0d1821]/50 backdrop-blur-md text-sm lg:hidden">
-          ABOUT
-        </h2>
+    <section
+      ref={ref}
+      id="about"
+      aria-label="about me"
+      className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+    >
+      <div className="container text-sm [&>p:not(:first-of-type)]:mt-4">
+        <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-black/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-gray-200 lg:sr-only">
+            About
+          </h2>
+        </div>
 
         <p className="mt-6 lg:mt-0">
           Back in 2012, I decided to try my hand at creating custom Tumblr
@@ -21,42 +28,9 @@ function About() {
           iste error, commodi asperiores doloremque natus ipsum magnam in atque
           ex.
         </p>
-
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis ea
-          minus sint recusandae cum adipisci placeat consequuntur reprehenderit
-          iste error, commodi asperiores doloremque natus ipsum magnam in atque
-          ex.
-        </p>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis ea
-          minus sint recusandae cum adipisci placeat consequuntur reprehenderit
-          iste error, commodi asperiores doloremque natus ipsum magnam in atque
-          ex.
-        </p>
-
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis ea
-          minus sint recusandae cum adipisci placeat consequuntur reprehenderit
-          iste error, commodi asperiores doloremque natus ipsum magnam in atque
-          ex.
-        </p>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis ea
-          minus sint recusandae cum adipisci placeat consequuntur reprehenderit
-          iste error, commodi asperiores doloremque natus ipsum magnam in atque
-          ex.
-        </p>
-
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis ea
-          minus sint recusandae cum adipisci placeat consequuntur reprehenderit
-          iste error, commodi asperiores doloremque natus ipsum magnam in atque
-          ex.
-        </p>
       </div>
     </section>
   )
-}
+})
 
 export { About }

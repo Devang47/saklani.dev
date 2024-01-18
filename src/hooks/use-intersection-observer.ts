@@ -1,32 +1,41 @@
-import * as React from 'react'
+import { RefObject, useEffect, useState } from 'react'
 
-export const useIntersectionObserver = <T extends Element>(
-  options: IntersectionObserverInit & { triggerOnce?: boolean }
-) => {
-  const ref = React.useRef<T>(null)
-  const [inView, setInView] = React.useState(false)
+interface Args extends IntersectionObserverInit {
+  freezeOnceVisible?: boolean
+}
 
-  React.useEffect(() => {
-    const elementToObserve = ref.current
-    if (!elementToObserve) return
-    const handleObserve: IntersectionObserverCallback = ([element]) => {
-      if (element) {
-        setInView((p) => {
-          // trigger once?
-          if (options && options.triggerOnce && p === true) return p
-          else return element.isIntersecting
-        })
-      }
-    }
+export function useIntersectionObserver(
+  elementRef: RefObject<Element>,
+  {
+    threshold = 0,
+    root = null,
+    rootMargin = '0%',
+    freezeOnceVisible = false
+  }: Args
+): IntersectionObserverEntry | undefined {
+  const [entry, setEntry] = useState<IntersectionObserverEntry>()
 
-    const observer = new IntersectionObserver(handleObserve, options)
+  const frozen = entry?.isIntersecting && freezeOnceVisible
 
-    observer.observe(elementToObserve)
+  const updateEntry = ([entry]: IntersectionObserverEntry[]): void => {
+    setEntry(entry)
+  }
 
-    return () => {
-      observer.disconnect()
-    }
-  }, [options])
+  useEffect(() => {
+    const node = elementRef?.current // DOM Ref
+    const hasIOSupport = !!window.IntersectionObserver
 
-  return [ref, inView] as const
+    if (!hasIOSupport || frozen || !node) return
+
+    const observerParams = { threshold, root, rootMargin }
+    const observer = new IntersectionObserver(updateEntry, observerParams)
+
+    observer.observe(node)
+
+    return () => observer.disconnect()
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [elementRef?.current, JSON.stringify(threshold), root, rootMargin, frozen])
+
+  return entry
 }

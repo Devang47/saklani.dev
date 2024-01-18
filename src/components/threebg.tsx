@@ -169,6 +169,11 @@ function Threebg() {
 
     addEventListener('resize', resize)
     addEventListener('mousemove', onMouseMove, false)
+
+    return () => {
+      removeEventListener('resize', resize)
+      removeEventListener('mousemove', onMouseMove, false)
+    }
   }, [])
 
   return (
