@@ -8,7 +8,6 @@ import { Header } from './sections/header'
 import Projects from './sections/projects'
 import Writing from './sections/writing'
 import Footer from './sections/footer'
-import { Container } from '~/components/container'
 import { QueryResponse } from '../..'
 
 function Homepage({ data }: { data: QueryResponse }) {
@@ -55,7 +54,7 @@ function Homepage({ data }: { data: QueryResponse }) {
         Skip to Content
       </a>
 
-      <Container as="section" className="lg:flex lg:justify-between lg:gap-4">
+      <section className="lg:flex lg:justify-between lg:gap-4">
         <Header
           title={data.titleH1}
           description={data.description}
@@ -75,7 +74,7 @@ function Homepage({ data }: { data: QueryResponse }) {
           <Writing blogs={data.blogs} />
           <Footer />
         </main>
-      </Container>
+      </section>
     </div>
   )
 }
