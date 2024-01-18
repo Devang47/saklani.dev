@@ -83,14 +83,14 @@ function Header({
         >
           <LinkedinIcon />
         </a>
-        <a
+        {/* <a
           target="_blank"
           aria-label="twitter url"
           title="twitter profile url"
           href={twitterLink}
         >
           <TwitterIcon />
-        </a>
+        </a> */}
         <a
           target="_blank"
           aria-label="github url"
