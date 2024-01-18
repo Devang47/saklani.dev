@@ -6,6 +6,7 @@ import { QueryResponse } from '../..'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://saklani.dev/'),
   title: 'Devang Saklani | Software Engineer',
   description:
     'Devang Saklani is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences and web apps.',
