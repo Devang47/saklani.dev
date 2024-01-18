@@ -6,8 +6,6 @@ const Experience = forwardRef(function Experience(
   { jobs }: { jobs: JobExperience[] },
   ref?: LegacyRef<HTMLElement>
 ) {
-  console.log(jobs)
-
   return (
     <section
       ref={ref}
