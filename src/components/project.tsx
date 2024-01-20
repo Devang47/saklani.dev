@@ -1,8 +1,17 @@
+import { usePostHog } from 'posthog-js/react'
 import Image from 'next/image'
 import React from 'react'
 import { IProject } from '../..'
 
 function Project({ data }: { data: IProject }) {
+  const posthog = usePostHog()
+
+  const handleClickOnProject = () => {
+    posthog.capture('$project_click', {
+      project_title: data.title
+    })
+  }
+
   return (
     <li className="mb-12">
       <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
@@ -12,6 +21,7 @@ function Project({ data }: { data: IProject }) {
             <a
               className="inline-flex items-baseline font-medium leading-tight text-gray-200 hover:text-cyan-300 focus-visible:text-cyan-300  group/link text-base"
               href={data.link}
+              onClick={handleClickOnProject}
               target="_blank"
               rel="noreferrer noopener"
               aria-label="Build a Spotify Connected App (opens in a new tab)"

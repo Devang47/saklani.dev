@@ -10,6 +10,7 @@ Design heavily inspired from [brittanychiang's portfolio](https://brittanychiang
 - [Next.js](https://nextjs.org/)
 - [Tailwind](https://tailwindcss.com/)
 - [Datocms](https://datocms.com/)
+- [Posthog](https://posthog.com/)
 
 ## Get Started
 

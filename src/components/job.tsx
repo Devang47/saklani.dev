@@ -1,7 +1,16 @@
 import React from 'react'
+import { usePostHog } from 'posthog-js/react'
 import { JobExperience } from '../..'
 
 function Job({ data }: { data: JobExperience }) {
+  const posthog = usePostHog()
+
+  const handleClickOnJob = () => {
+    posthog.capture('$job_click', {
+      job_title: data.title
+    })
+  }
+
   return (
     <li className="mb-12">
       <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
@@ -19,6 +28,7 @@ function Job({ data }: { data: JobExperience }) {
               <a
                 className="inline-flex items-baseline font-medium leading-tight text-gray-200 hover:text-cyan-300 focus-visible:text-cyan-300  group/link text-base"
                 href={data.link}
+                onClick={handleClickOnJob}
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label="Lead Engineer at Upstatement (opens in a new tab)"

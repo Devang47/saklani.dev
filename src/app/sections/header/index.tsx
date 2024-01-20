@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { usePostHog } from 'posthog-js/react'
 import React from 'react'
 
 import GithubIcon from '~/icons/github'
@@ -32,6 +33,13 @@ function Header({
   twitterLink,
   upworkLink
 }: Props) {
+  const posthog = usePostHog()
+
+  const handleClickOnSocialLink = (type: string) => {
+    posthog.capture(`$${type}_click`)
+    posthog.capture(`$social_link_click`)
+  }
+
   return (
     <section className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div className="w-full">
@@ -72,6 +80,7 @@ function Header({
           aria-label="mail me"
           title="send a mail to devang"
           href={gmailLink}
+          onClick={() => handleClickOnSocialLink('gmail')}
         >
           <GmailIcon />
         </a>
@@ -80,6 +89,7 @@ function Header({
           aria-label="linkedin url"
           title="linkedin profile url"
           href={linkedinLink}
+          onClick={() => handleClickOnSocialLink('linkedin')}
         >
           <LinkedinIcon />
         </a>
@@ -89,6 +99,7 @@ function Header({
           title="twitter profile url"
           className="hidden"
           href={twitterLink}
+          onClick={() => handleClickOnSocialLink('twitter')}
         >
           <TwitterIcon />
         </a>
@@ -97,6 +108,7 @@ function Header({
           aria-label="github url"
           title="github profile url"
           href={githubLink}
+          onClick={() => handleClickOnSocialLink('github')}
         >
           <GithubIcon />
         </a>
@@ -105,6 +117,7 @@ function Header({
           aria-label="upwork url"
           title="upwork profile url"
           href={upworkLink}
+          onClick={() => handleClickOnSocialLink('upwork')}
         >
           <UpworkIcon />
         </a>
@@ -114,6 +127,7 @@ function Header({
           className="-ml-1"
           title="readcv profile url"
           href={resumeLink}
+          onClick={() => handleClickOnSocialLink('resume')}
         >
           <ReadcvIcon />
         </a>
