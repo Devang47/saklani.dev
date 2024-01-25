@@ -48,9 +48,9 @@ function Header({
             {title}
           </h1>
         </a>
-        <h2 className="mt-3 font-semibold text-gray-300 sm:text-lg">
+        <h3 className="mt-3 font-semibold text-gray-300 sm:text-lg">
           {subtitle}
-        </h2>
+        </h3>
 
         <p className="mt-4 text-sm max-w-xs leading-normal">{description}</p>
 
