@@ -52,7 +52,9 @@ function Header({
           {subtitle}
         </h3>
 
-        <p className="mt-4 text-sm max-w-xs leading-normal">{description}</p>
+        <p className="mt-4 max-w-xs leading-normal text-[15px]">
+          {description}
+        </p>
 
         <nav className="nav hidden lg:block" aria-label="In-page jump links">
           <ul className="mt-24 w-max">
@@ -77,6 +79,7 @@ function Header({
       <div className="flex items-center gap-5 mt-8 [&>*]:p-1">
         <a
           target="_blank"
+          rel="noreferrer"
           aria-label="mail me"
           title="send a mail to devang"
           href={gmailLink}
@@ -86,6 +89,7 @@ function Header({
         </a>
         <a
           target="_blank"
+          rel="noreferrer"
           aria-label="linkedin url"
           title="linkedin profile url"
           href={linkedinLink}
@@ -95,6 +99,7 @@ function Header({
         </a>
         <a
           target="_blank"
+          rel="noreferrer"
           aria-label="twitter url"
           title="twitter profile url"
           className="hidden"
@@ -105,6 +110,7 @@ function Header({
         </a>
         <a
           target="_blank"
+          rel="noreferrer"
           aria-label="github url"
           title="github profile url"
           href={githubLink}
@@ -114,6 +120,7 @@ function Header({
         </a>
         <a
           target="_blank"
+          rel="noreferrer"
           aria-label="upwork url"
           title="upwork profile url"
           href={upworkLink}
@@ -123,6 +130,7 @@ function Header({
         </a>
         <a
           target="_blank"
+          rel="noreferrer"
           aria-label="readcv url"
           className="-ml-1"
           title="readcv profile url"

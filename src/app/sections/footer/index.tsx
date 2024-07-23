@@ -25,9 +25,7 @@ function Footer() {
       <div className="text-base lg:text-xl font-semibold tracking-wider">
         {currentTime}
       </div>
-      <p className="mt-1">
-        Designed and developed by Devang.
-      </p>
+      <p className="mt-1">Designed and developed by Devang.</p>
     </footer>
   )
 }
