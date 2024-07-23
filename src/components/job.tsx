@@ -1,5 +1,6 @@
-import React from 'react'
 import { usePostHog } from 'posthog-js/react'
+import React from 'react'
+
 import { JobExperience } from '../..'
 
 function Job({ data }: { data: JobExperience }) {

@@ -1,6 +1,7 @@
-import { usePostHog } from 'posthog-js/react'
 import Image from 'next/image'
+import { usePostHog } from 'posthog-js/react'
 import React from 'react'
+
 import { IProject } from '../..'
 
 function Project({ data }: { data: IProject }) {

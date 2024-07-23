@@ -1,7 +1,11 @@
 import '~/css/global.scss'
+
 import clsx from 'clsx'
-import { PHProvider } from './providers'
+
+import { BackgroundBeams } from '~/components/beamsbg'
+
 import PostHogPageView from './PostHogPageView'
+import { PHProvider } from './providers'
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -14,6 +18,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         >
           <PostHogPageView />
           {children}
+
+          <BackgroundBeams />
         </body>
       </PHProvider>
     </html>

@@ -3,12 +3,13 @@
 import React, { useEffect, useRef } from 'react'
 
 import { About } from '~/app/sections/about'
+
+import { QueryResponse } from '../..'
 import { Experience } from './sections/experience'
+import Footer from './sections/footer'
 import { Header } from './sections/header'
 import Projects from './sections/projects'
 import Writing from './sections/writing'
-import Footer from './sections/footer'
-import { QueryResponse } from '../..'
 
 function Homepage({ data }: { data: QueryResponse }) {
   const aboutSectionRef = useRef<HTMLDivElement>(null)
@@ -16,7 +17,7 @@ function Homepage({ data }: { data: QueryResponse }) {
   const projectsSectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    let navEl = document.querySelector('.nav')
+    const navEl = document.querySelector('.nav')
     if (!navEl || window.innerWidth < 1024) return
 
     const className = 'active'
@@ -24,9 +25,11 @@ function Homepage({ data }: { data: QueryResponse }) {
       (e) => {
         e.forEach((e) => {
           if (e.isIntersecting) {
-            let s = navEl?.querySelector('a[href].'.concat(className))
+            const s = navEl?.querySelector('a[href].'.concat(className))
             s?.classList.remove(className)
-            let r = navEl?.querySelector('a[href="#'.concat(e.target.id, '"]'))
+            const r = navEl?.querySelector(
+              'a[href="#'.concat(e.target.id, '"]')
+            )
             r?.classList.add(className)
           }
         })

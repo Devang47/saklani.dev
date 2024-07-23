@@ -1,9 +1,10 @@
+import { Metadata } from 'next'
 import React from 'react'
 
 import { performRequest } from '~/lib/datocms'
-import Homepage from './Homepage'
+
 import { QueryResponse } from '../..'
-import { Metadata } from 'next'
+import Homepage from './Homepage'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://saklani.dev/'),
