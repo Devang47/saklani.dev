@@ -1,13 +1,12 @@
-import { Metadata } from 'next'
 import React from 'react'
 
 import { performRequest } from '~/lib/datocms'
 
 import { QueryResponse } from '../..'
-import Homepage from './Homepage'
+import Homepage from './pages/Homepage'
+import Head from 'next/head'
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://saklani.dev/'),
+const metadata = {
   title: 'Devang Saklani | Software Engineer',
   description:
     'Devang Saklani is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences and web apps.',
@@ -99,9 +98,38 @@ const Home = async () => {
   })
 
   return (
-    <div className="">
-      <Homepage data={data?.home} />
-    </div>
+    <>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+
+        <meta property="og:type" content={metadata.openGraph.type} />
+        <meta property="og:title" content={metadata.openGraph.title} />
+        <meta
+          property="og:description"
+          content={metadata.openGraph.description}
+        />
+        <meta property="og:url" content={metadata.openGraph.url} />
+        <meta property="og:image" content={metadata.openGraph.images} />
+        
+        <meta name="twitter:card" content={metadata.twitter.card} />
+        <meta name="twitter:site" content={metadata.twitter.site} />
+        <meta name="twitter:title" content={metadata.twitter.title} />
+        <meta
+          name="twitter:description"
+          content={metadata.twitter.description}
+        />
+        <meta name="twitter:image" content={metadata.twitter.images.url} />
+        {metadata.icons.map((icon, index) => (
+          <link key={index} rel="icon" href={icon.url} />
+        ))}
+        <link rel="manifest" href="https://saklani.dev/manifest.webmanifest" />
+      </Head>
+
+      <div className="">
+        <Homepage data={data?.home} />
+      </div>
+    </>
   )
 }
 
