@@ -4,12 +4,12 @@ import React, { useEffect, useRef } from 'react'
 
 import { About } from '~/app/sections/about'
 
-import { QueryResponse } from '../..'
-import { Experience } from './sections/experience'
-import Footer from './sections/footer'
-import { Header } from './sections/header'
-import Projects from './sections/projects'
-import Writing from './sections/writing'
+import { QueryResponse } from '../../..'
+import { Experience } from '../sections/experience'
+import Footer from '../sections/footer'
+import { Header } from '../sections/header'
+import Projects from '../sections/projects'
+import Writing from '../sections/writing'
 
 function Homepage({ data }: { data: QueryResponse }) {
   const aboutSectionRef = useRef<HTMLDivElement>(null)
