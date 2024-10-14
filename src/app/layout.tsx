@@ -8,7 +8,7 @@ import PostHogPageView from './utils/PostHogPageView'
 import { PHProvider } from './utils/providers'
 // import Threebg from '~/components/threebg'
 
-export const metadata = {
+const metadata = {
   title: 'Devang Saklani | Software Engineer',
   description:
     'Devang Saklani is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences and web apps.',
