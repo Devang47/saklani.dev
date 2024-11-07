@@ -149,9 +149,9 @@ export default function Game() {
       if (winner.winner === GAME_STATE.PLAYER_WON) {
         posthog.capture(`$$Player_Won`)
 
-        let end = Date.now() + 3 * 1000
-
-        let colors = ['#bb0000', '#ffffff', '#2AB7CA', '#EEB902']
+        const end = Date.now() + 3 * 1000
+        const colors = ['#bb0000', '#ffffff', '#2AB7CA', '#EEB902']
+        
         ;(function frame() {
           confetti({
             particleCount: 4,

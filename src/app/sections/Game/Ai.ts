@@ -131,7 +131,7 @@ const aiCanWin = (grid: any) => {
   count = 0
 
   // Check Anti-Diag
-  for (var i = 0; i < 3; ++i) {
+  for (let i = 0; i < 3; ++i) {
     if (grid[convertCordToIndex(i, 3 - 1 - i)] === SPACE_STATE.AI) {
       count++
     } else if (grid[convertCordToIndex(i, 3 - 1 - i)] === SPACE_STATE.PLAYER) {
@@ -155,8 +155,8 @@ const aiCanWin = (grid: any) => {
  * @returns Can ai block opponent
  */
 function aiCanBlock(grid: any) {
-  var count = 0
-  var row, col
+  let count = 0
+  let row, col
 
   // Check Rows
   for (let i = 0; i < 3; ++i) {
