@@ -1,11 +1,15 @@
+import { useInView } from 'framer-motion'
 import Image from 'next/image'
 import { usePostHog } from 'posthog-js/react'
-import React from 'react'
+import React, { useRef } from 'react'
 
 import { IProject } from '../..'
 
 function Project({ data }: { data: IProject }) {
   const posthog = usePostHog()
+
+  const container = useRef(null)
+  const isInView = useInView(container)
 
   const handleClickOnProject = () => {
     posthog.capture('$project_click', {
@@ -14,13 +18,21 @@ function Project({ data }: { data: IProject }) {
   }
 
   return (
-    <li className="mb-12">
+    <li
+      ref={container}
+      style={{
+        transform: isInView ? 'translateY(0)' : 'translateY(60px)',
+        opacity: isInView ? 1 : 0,
+        transition: 'all 0.4s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s'
+      }}
+      className="mb-12"
+    >
       <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-        <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-gray-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+        <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-neutral-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
         <div className="z-10 sm:order-2 sm:col-span-6">
           <h3>
             <a
-              className="inline-flex items-baseline font-medium leading-tight text-gray-200 hover:text-cyan-300 focus-visible:text-cyan-300  group/link text-base"
+              className="inline-flex items-baseline font-medium leading-tight text-neutral-200 hover:text-scooter-300 focus-visible:text-scooter-300  group/link text-base"
               href={data.link}
               onClick={handleClickOnProject}
               target="_blank"
@@ -52,7 +64,7 @@ function Project({ data }: { data: IProject }) {
           <ul className="mt-2 flex flex-wrap" aria-label="Technologies used:">
             {data.techUsed.split(' ').map((data, i) => (
               <li className="mr-1.5 mt-2" key={i}>
-                <div className="flex items-center rounded-full bg-cyan-400/10 px-3 py-1 text-xs font-medium leading-5 text-cyan-300 ">
+                <div className="flex items-center rounded-full bg-scooter-400/10 px-3 py-1 text-xs font-medium leading-5 text-scooter-300 ">
                   {data}
                 </div>
               </li>

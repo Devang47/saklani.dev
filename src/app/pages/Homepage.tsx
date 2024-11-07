@@ -6,7 +6,6 @@ import { About } from '~/app/sections/about'
 
 import { QueryResponse } from '../../..'
 import { Experience } from '../sections/experience'
-import Footer from '../sections/footer'
 import { Header } from '../sections/header'
 import Projects from '../sections/projects'
 import Writing from '../sections/writing'
@@ -52,7 +51,7 @@ function Homepage({ data }: { data: QueryResponse }) {
     <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
       <a
         href="#content"
-        className="absolute left-0 top-0 block -translate-x-full rounded bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 px-4 py-3 text-sm font-bold uppercase tracking-widest text-white focus-visible:translate-x-0"
+        className="absolute left-0 top-0 block -translate-x-full rounded bg-gradient-to-br from-scooter-400 via-blue-500 to-purple-600 px-4 py-3 text-sm font-bold uppercase tracking-widest text-white focus-visible:translate-x-0"
       >
         Skip to Content
       </a>
@@ -75,7 +74,6 @@ function Homepage({ data }: { data: QueryResponse }) {
           <Projects projects={data.projects} ref={projectsSectionRef} />
 
           <Writing blogs={data.blogs} />
-          <Footer />
         </main>
       </section>
     </div>

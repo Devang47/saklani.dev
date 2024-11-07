@@ -16,8 +16,8 @@ const Experience = forwardRef(function Experience(
       aria-label="Work experience"
     >
       <div className="container mt-10 [&>p:not(:first-of-type)]:mt-4">
-        <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-black/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-          <h2 className="font-bold uppercase tracking-widest text-gray-200 lg:sr-only">
+        <div className="sticky top-0 bg-neutral-900/60 z-20 -mx-6 mb-4 w-screen px-6 py-5 md:-mx-12 md:px-12 lg:sr-only lg:opacity-0">
+          <h2 className="font-bold tracking-widest text-neutral-200 lg:sr-only">
             Experience
           </h2>
         </div>

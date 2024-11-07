@@ -4,6 +4,7 @@ import { performRequest } from '~/lib/datocms'
 
 import { QueryResponse } from '../..'
 import Homepage from './pages/Homepage'
+import Footer from './sections/footer'
 
 const PAGE_CONTENT_QUERY = `
 query Home {
@@ -69,7 +70,9 @@ const Home = async () => {
   return (
     <>
       <div className="">
+        <div className="blur-box"></div>
         <Homepage data={data?.home} />
+        <Footer />
       </div>
     </>
   )
