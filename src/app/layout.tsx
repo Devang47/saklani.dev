@@ -2,11 +2,11 @@ import '~/css/global.scss'
 
 import clsx from 'clsx'
 
-import { BackgroundBeams } from '~/components/beamsbg'
 
 import PostHogPageView from './utils/PostHogPageView'
 import { PHProvider } from './utils/providers'
 // import Threebg from '~/components/threebg'
+// import { BackgroundBeams } from '~/components/beamsbg'
 
 const metadata = {
   title: 'Devang Saklani | Software Engineer',
@@ -69,12 +69,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       </head>
       <PHProvider>
         <body
-          className={clsx(
-            'bg-black leading-relaxed text-gray-400 antialiased selection:bg-cyan-300 selection:text-cyan-900'
-          )}
+          className={clsx('leading-relaxed antialiased selection:bg-white/10 ')}
         >
-          <BackgroundBeams />
           <PostHogPageView />
+          {/* <BackgroundBeams /> */}
           {/* <Threebg /> */}
           {children}
         </body>
