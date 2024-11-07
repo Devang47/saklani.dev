@@ -1,6 +1,7 @@
 import clsx from 'clsx'
+import { motion, stagger, useAnimate } from 'framer-motion'
 import { usePostHog } from 'posthog-js/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import GithubIcon from '~/icons/github'
 import GmailIcon from '~/icons/gmail'
@@ -40,44 +41,87 @@ function Header({
     posthog.capture(`$social_link_click`)
   }
 
+  const staggerMenuItems = stagger(0.05, { startDelay: 0.5 })
+
+  const [scope, animate] = useAnimate()
+  const [scope2, animate2] = useAnimate()
+
+  useEffect(() => {
+    animate(
+      'li, a',
+      { opacity: 1, x: 0 },
+      {
+        duration: 0.4,
+        delay: staggerMenuItems,
+        type: 'spring'
+      }
+    )
+    animate2(
+      'a',
+      { opacity: 1, y: 0 },
+      {
+        duration: 0.4,
+        delay: staggerMenuItems,
+        type: 'spring'
+      }
+    )
+  }, [])
+
   return (
     <section className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div className="w-full">
-        <a href="/" className="w-fit block">
-          <h1 className="text-2xl w-fit font-bold text-gray-200 sm:text-4xl">
-            {title}
-          </h1>
-        </a>
-        <h3 className="mt-3 font-semibold text-gray-300 sm:text-lg">
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.3 }}
+          className="text-2xl w-fit font-bold text-neutral-200 sm:text-4xl"
+        >
+          {title}
+        </motion.h1>
+        <motion.h3
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45 }}
+          className="mt-3 font-semibold text-neutral-300 sm:text-lg"
+        >
           {subtitle}
-        </h3>
+        </motion.h3>
 
-        <p className="mt-4 max-w-xs leading-normal text-[15px]">
+        <motion.p
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="mt-4 max-w-xs leading-normal text-neutral-400 text-[15px]"
+        >
           {description}
-        </p>
+        </motion.p>
 
         <nav className="nav hidden lg:block" aria-label="In-page jump links">
-          <ul className="mt-24 w-max">
+          <ul ref={scope} className="mt-24 w-max">
             {['About', 'Experience', 'Projects'].map((item, i) => (
-              <li key={i}>
+              <motion.li initial={{ opacity: 0, x: -60 }} key={i}>
                 <a
                   className={clsx('group flex items-center py-3')}
                   aria-label={`Jump to ${item} section`}
                   href={'#' + item.toLowerCase()}
                 >
-                  <span className="nav-indicator mr-4 h-px w-8 bg-gray-600 transition-all group-hover:w-16 group-hover:bg-gray-200 group-focus-visible:w-16 group-focus-visible:bg-gray-200 motion-reduce:transition-none"></span>
-                  <span className="nav-text text-xs font-bold uppercase tracking-widest text-gray-500 group-hover:text-gray-200 group-focus-visible:text-gray-200">
+                  <span className="nav-indicator mr-4 h-px w-8 bg-neutral-600 transition-all group-hover:w-16 group-hover:bg-neutral-200 group-focus-visible:w-16 group-focus-visible:bg-neutral-200 motion-reduce:transition-none"></span>
+                  <span className="nav-text text-xs font-bold uppercase tracking-widest text-neutral-500 group-hover:text-neutral-200 group-focus-visible:text-neutral-200">
                     {item}
                   </span>
                 </a>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </nav>
       </div>
 
-      <div className="flex items-center gap-5 mt-8 [&>*]:p-1">
-        <a
+      <motion.div
+        ref={scope2}
+        className="flex items-center gap-5 mt-8 [&>*]:p-1"
+      >
+        <motion.a
+          initial={{ opacity: 0, y: 40 }}
           target="_blank"
           rel="noreferrer"
           aria-label="mail me"
@@ -86,8 +130,9 @@ function Header({
           onClick={() => handleClickOnSocialLink('gmail')}
         >
           <GmailIcon />
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          initial={{ opacity: 0, y: 40 }}
           target="_blank"
           rel="noreferrer"
           aria-label="linkedin url"
@@ -96,8 +141,9 @@ function Header({
           onClick={() => handleClickOnSocialLink('linkedin')}
         >
           <LinkedinIcon />
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          initial={{ opacity: 0, y: 40 }}
           target="_blank"
           rel="noreferrer"
           aria-label="twitter url"
@@ -107,8 +153,9 @@ function Header({
           onClick={() => handleClickOnSocialLink('twitter')}
         >
           <TwitterIcon />
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          initial={{ opacity: 0, y: 40 }}
           target="_blank"
           rel="noreferrer"
           aria-label="github url"
@@ -117,8 +164,9 @@ function Header({
           onClick={() => handleClickOnSocialLink('github')}
         >
           <GithubIcon />
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          initial={{ opacity: 0, y: 40 }}
           target="_blank"
           rel="noreferrer"
           aria-label="upwork url"
@@ -127,8 +175,9 @@ function Header({
           onClick={() => handleClickOnSocialLink('upwork')}
         >
           <UpworkIcon />
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          initial={{ opacity: 0, y: 40 }}
           target="_blank"
           rel="noreferrer"
           aria-label="readcv url"
@@ -138,8 +187,8 @@ function Header({
           onClick={() => handleClickOnSocialLink('resume')}
         >
           <ReadcvIcon />
-        </a>
-      </div>
+        </motion.a>
+      </motion.div>
     </section>
   )
 }
