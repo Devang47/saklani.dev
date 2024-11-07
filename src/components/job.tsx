@@ -1,8 +1,8 @@
+import { motion } from 'framer-motion'
 import { usePostHog } from 'posthog-js/react'
 import React from 'react'
 
 import { JobExperience } from '../..'
-import { motion } from 'framer-motion'
 
 function Job({ data }: { data: JobExperience }) {
   const posthog = usePostHog()
@@ -16,7 +16,7 @@ function Job({ data }: { data: JobExperience }) {
   return (
     <motion.li
       initial={{ opacity: 0, y: 60 }}
-      animate={{ opacity: 1, y: 0}}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: 0.7 }}
       className="mb-12"
     >

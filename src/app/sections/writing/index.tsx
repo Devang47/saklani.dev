@@ -1,8 +1,8 @@
+import { useInView } from 'framer-motion'
 import Image from 'next/image'
 import React, { useRef } from 'react'
 
 import { Blog } from '../../../..'
-import { useInView } from 'framer-motion'
 
 function Writing({ blogs }: { blogs: Blog[] }) {
   return (

@@ -5,53 +5,45 @@ export const calculateAITurn = (grid: any, moveCount: any) => {
   let aiSpace: any = aiCanWin(grid)
 
   if (Number.isInteger(aiSpace)) {
-    console.log('Ai winning')
     return aiSpace
   }
 
   aiSpace = aiCanBlock(grid)
 
   if (Number.isInteger(aiSpace)) {
-    console.log('Ai blocking')
     return aiSpace
   }
 
   aiSpace = aiCanBlockFork(grid, moveCount)
 
   if (Number.isInteger(aiSpace)) {
-    console.log('AI forking')
     return aiSpace
   }
 
   aiSpace = aiCanCenter(grid)
 
   if (Number.isInteger(aiSpace)) {
-    console.log('AI centering')
     return aiSpace
   }
 
   aiSpace = aiCanFillOppositeCorner(grid)
 
   if (Number.isInteger(aiSpace)) {
-    console.log('AI filling opposite corner')
     return aiSpace
   }
 
   aiSpace = aiCanFillEmptyCorner(grid)
 
   if (Number.isInteger(aiSpace)) {
-    console.log('AI filling empty corner')
     return aiSpace
   }
 
   aiSpace = aiCanFillEmptySide(grid)
 
   if (Number.isInteger(aiSpace)) {
-    console.log('AI filling empty side')
     return aiSpace
   }
 
-  // console.log("AI can't move");
   return null
 }
 

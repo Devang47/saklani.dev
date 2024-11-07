@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { calculateAITurn } from './Ai'
 import confetti from 'canvas-confetti'
-import posthog from 'posthog-js'
+import { posthog } from 'posthog-js'
+import React, { useEffect, useState } from 'react'
+
+import { calculateAITurn } from './Ai'
 
 const GAME_STATE = {
   PLAYER_TURN: 'player_turn',
@@ -151,7 +152,7 @@ export default function Game() {
 
         const end = Date.now() + 3 * 1000
         const colors = ['#bb0000', '#ffffff', '#2AB7CA', '#EEB902']
-        
+
         ;(function frame() {
           confetti({
             particleCount: 4,

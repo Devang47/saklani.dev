@@ -1,4 +1,4 @@
-import { stagger, useAnimate, motion } from 'framer-motion'
+import { motion, stagger, useAnimate } from 'framer-motion'
 import React, { forwardRef, Ref, useEffect } from 'react'
 
 const About = forwardRef(function About(

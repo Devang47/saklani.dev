@@ -2,7 +2,6 @@ import '~/css/global.scss'
 
 import clsx from 'clsx'
 
-
 import PostHogPageView from './utils/PostHogPageView'
 import { PHProvider } from './utils/providers'
 // import Threebg from '~/components/threebg'

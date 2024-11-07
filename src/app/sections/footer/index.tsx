@@ -1,9 +1,9 @@
 'use client'
 
-import React, { Suspense, useEffect } from 'react'
-import Clock from './clock'
-import { lazy } from 'react'
 import posthog from 'posthog-js'
+import React, { lazy, Suspense, useEffect } from 'react'
+
+import Clock from './clock'
 
 function Loading() {
   return (

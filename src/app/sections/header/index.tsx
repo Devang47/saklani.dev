@@ -82,7 +82,7 @@ function Header({
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45 }}
-          className="mt-3 font-semibold text-neutral-300 sm:text-lg"
+          className="mt-2 md:mt-3 font-semibold text-neutral-300 text-sm sm:text-lg"
         >
           {subtitle}
         </motion.h3>

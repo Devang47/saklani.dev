@@ -1,9 +1,9 @@
+import { useInView } from 'framer-motion'
 import Image from 'next/image'
 import { usePostHog } from 'posthog-js/react'
 import React, { useRef } from 'react'
 
 import { IProject } from '../..'
-import { useInView } from 'framer-motion'
 
 function Project({ data }: { data: IProject }) {
   const posthog = usePostHog()
