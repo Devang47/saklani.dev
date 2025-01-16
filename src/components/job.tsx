@@ -17,7 +17,7 @@ function Job({ data }: { data: JobExperience }) {
     <motion.li
       initial={{ opacity: 0, y: 60 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: 0.7 }}
+      transition={{ duration: 0.35, delay: 0.6 }}
       className="mb-12"
     >
       <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
